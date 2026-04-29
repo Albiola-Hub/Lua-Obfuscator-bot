@@ -295,7 +295,8 @@ async def help_cmd(interaction: discord.Interaction):
 #  RUN BOT
 # ═══════════════════════════════════════
 
-# 🔴 PALITAN ITO NG IYONG ACTUAL BOT TOKEN 🔴
-TOKEN = "MTQ5OTE4NDE2NDU5Mzg2MDYxOA.GJp4Cc.GgD9WWAI2D3g57ZETIWKCtOqwPmtyg4MaW-Ajk"  # <-- Ilagay ang token mo dito
-
-bot.run(TOKEN)
+token = os.environ.get("DISCORD_TOKEN")
+if not token:
+    print("❌ ERROR: Walang DISCORD_TOKEN! I-set mo sa environment variables.")
+else:
+    bot.run(token)
